@@ -1,0 +1,57 @@
+package myproject;
+import java.util.*;
+public class GaleShapleyAlgo {
+
+	static int N=4;
+	static void findBestPair()
+	{
+		
+	}
+	static void bestFit(int prefer[][])
+	{
+		int m=0;
+		int wPartner[]=new int[N];
+		boolean mfree[]=new boolean[N];
+		Arrays.fill(wPartner, -1);
+		int freeCount=N;
+		while(freeCount>0)
+		{
+		
+			for(m=0;m<N;m++)
+			{
+				if(mfree[m]==false)
+					break;
+					
+			}
+			for(int i=0;i<N && mfree[m]==false;i++)
+			{ 
+			
+			
+				int w;
+				 w =prefer[m][i];
+				 if(wPartner[w-N]==-1)
+				 {
+					 wPartner[w-N]=m;
+					 mfree[m]=true;
+					 freeCount--;
+					 
+				 }
+				 else
+				 {
+					 findBestPair();
+				 }
+				 
+			
+			}
+			
+			
+		}
+				
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int prefer[][]= new int[][]{{7,5,6,4},{5,4,6,7},{4,5,6,7},{4,5,6,7},{0,1,2,3},{0,1,2,3},{0,1,2,3},{0,1,2,3}};
+
+		bestFit(prefer);
+}
