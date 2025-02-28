@@ -3,9 +3,16 @@ import java.util.*;
 public class GaleShapleyAlgo {
 
 	static int N=4;
-	static void findBestPair()
+	static boolean findBestPair(int prefer[][],int w,int m,int m1)
 	{
-		
+		for(int i=0;i<N;i++)
+		{
+			if(prefer[m][i]==m)
+				return true;
+			else if(prefer[m][i]==m1)
+	             return false;
+		}
+		return false;
 	}
 	static void bestFit(int prefer[][])
 	{
@@ -38,7 +45,14 @@ public class GaleShapleyAlgo {
 				 }
 				 else
 				 {
-					 findBestPair();
+					 int m1=wPartner[w-N];
+				 
+					 if(findBestPair(prefer,w,m,m1)==true)
+					 {
+						 mfree[m1]=false;
+						 wPartner[w-N]=m;
+						 mfree[m]=true;
+					 }
 				 }
 				 
 			
@@ -46,12 +60,22 @@ public class GaleShapleyAlgo {
 			
 			
 		}
+		System.out.println("WOMAN MAN");
+		for (int i = 0; i < N; i++) 
+		{
+		    System.out.print(" "); 
+		    System.out.println(i + N + "     " + 
+		                           wPartner[i]);
+		}
+		
 				
 	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		int prefer[][]= new int[][]{{7,5,6,4},{5,4,6,7},{4,5,6,7},{4,5,6,7},{0,1,2,3},{0,1,2,3},{0,1,2,3},{0,1,2,3}};
 
 		bestFit(prefer);
+}
 }
