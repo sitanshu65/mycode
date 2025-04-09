@@ -74,8 +74,9 @@ public class GaleShapleyAlgo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int prefer[][]= new int[][]{{7,5,6,4},{5,4,6,7},{4,5,6,7},{4,5,6,7},{0,1,2,3},{0,1,2,3},{0,1,2,3},{0,1,2,3}};
+		int prefer[][]= new int[][]{{7,5,6,4},{7,4,6,5},{4,5,6,7},{4,5,6,7},{0,1,2,3},{1,0,2,3},{0,1,2,3},{0,1,2,3}};
 
 		bestFit(prefer);
 }
 }
+
