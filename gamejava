@@ -1,0 +1,69 @@
+/**
+ * 
+ */
+package myproject;
+import java.util.*;
+
+/**
+ * 
+ */
+public class StartupGame {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int takeInput;
+		Startup st= new Startup();
+		Scanner sc=new Scanner(System.in);
+		while(true)
+		{
+			
+		}
+		System.out.println("Please Enter the number:");
+		takeInput=sc.nextInt();
+		
+		
+		
+		
+
+	}
+
+}
+ class Startup{
+	private int[] locationCells= {2,3,4};
+	private int numOfHits=0;
+	String checkYourSelf(int userguess)
+	{
+		int[] num=new int[3];
+		num=getLocationcells(locationCells);
+		for(int i:num)
+		{
+			if(numOfHits==3)
+			{
+				return "Kill";
+			}
+			if(userguess==num[i])
+			{
+				numOfHits++;
+				return "Hit";
+			}
+			else
+			{
+				return "Miss";
+			}
+			
+		}
+		return null;
+		
+	}
+	
+    private int[] getLocationcells(int[] locations)
+	{
+		int[] startupLocation= new int[3];
+		startupLocation=locations;
+		return startupLocation;
+		
+	}
+}
