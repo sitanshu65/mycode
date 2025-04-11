@@ -1,6 +1,3 @@
-/**
- * 
- */
 package myproject;
 import java.util.*;
 
@@ -15,14 +12,25 @@ public class StartupGame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int takeInput;
+		int noOfAttempts=0;
+		String output="Hit";
 		Startup st= new Startup();
-		Scanner sc=new Scanner(System.in);
+		
 		while(true)
 		{
+			if(output.equals("Kill"))
+			{
+				break;
+			}
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Please Enter the number:");
+			takeInput=sc.nextInt();
+		    output=st.checkYourSelf(takeInput);
+		    System.out.println(output);
+			noOfAttempts++;
 			
 		}
-		System.out.println("Please Enter the number:");
-		takeInput=sc.nextInt();
+		System.out.println("You take" +noOfAttempts+ "to complete this game!");
 		
 		
 		
@@ -32,34 +40,32 @@ public class StartupGame {
 
 }
  class Startup{
-	private int[] locationCells= {2,3,4};
+	private int[] num= {2,3,4};
 	private int numOfHits=0;
+	
+	
 	String checkYourSelf(int userguess)
 	{
-		int[] num=new int[3];
-		num=getLocationcells(locationCells);
+		
 		for(int i:num)
 		{
 			if(numOfHits==3)
 			{
 				return "Kill";
 			}
-			if(userguess==num[i])
+			if(userguess==i)
 			{
 				numOfHits++;
 				return "Hit";
 			}
-			else
-			{
-				return "Miss";
-			}
+			
 			
 		}
 		return null;
 		
 	}
 	
-    private int[] getLocationcells(int[] locations)
+    public static int[] getLocationcells(int[] locations)
 	{
 		int[] startupLocation= new int[3];
 		startupLocation=locations;
